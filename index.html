@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ARMA EL PICÓ · Versión costeña</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="image/png" href="assets/favicon.jpg" />
+</head>
+<body>
+  <div id="confetti"></div>
+  <div class="wrap">
+    <header class="hero">
+      <div class="badge">ARTE ELECTRÓNICO · CULTURA COSTEÑA · ROMPECABEZAS INTERACTIVO</div>
+      <h1>ARMA <span>EL</span> PICÓ</h1>
+      <p class="subtitle">Reconstruye un auténtico picó del Caribe colombiano mientras suena una pista original de champeta afrocaribeña. ¡Que se prenda la verbena!</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="board-wrap">
+          <div class="board-shell">
+            <div id="board" class="board" aria-label="Rompecabezas de picó costeño"></div>
+            <div id="overlay" class="overlay" aria-live="polite">
+              <div>
+                <div style="font-size: 2rem; margin-bottom: 4px;">🎉🔊🎉</div>
+                <h3>¡PICÓ PRENDIDO!</h3>
+                <p id="winText">Lo lograste.</p>
+                <div class="win-actions"><button id="playAgain" class="btn">VOLVER A JUGAR</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="controls">
+            <button id="shuffleBtn" type="button" class="btn">🔀 REVOLVER</button>
+            <button id="hintBtn" type="button" class="btn secondary">👁️ VER REFERENCIA</button>
+            <button id="musicBtn" type="button" class="btn alt">▶️ PRENDER EL PICÓ</button>
+          </div>
+          <p class="help">Toca dos piezas para intercambiarlas. La champeta se activa al empezar a jugar o al pulsar PRENDER EL PICÓ. ¡Que suene el Caribe!</p>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <div class="stats">
+          <div class="stat"><strong id="moves">0</strong><span>Movimientos</span></div>
+          <div class="stat"><strong id="timer">00:00</strong><span>Tiempo</span></div>
+          <div class="stat"><strong id="progress">0%</strong><span>Armado</span></div>
+        </div>
+
+        <div class="form-group">
+          <label for="imageSelect">Modelo de picó</label>
+          <select id="imageSelect">
+            <option value="0">Picó Caribe</option>
+            <option value="1">Rumbero Mayor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="difficultySelect">Dificultad</label>
+          <select id="difficultySelect">
+            <option value="3">Básico · 3 × 3</option>
+            <option value="4" selected>Intermedio · 4 × 4</option>
+            <option value="5">Avanzado · 5 × 5</option>
+          </select>
+        </div>
+
+        <div class="music-line" id="musicLine">
+          <div class="eq"><i></i><i></i><i></i><i></i><i></i></div>
+          <div id="musicLabel" class="music-text">Champeta afrocaribeña original · lista para sonar</div>
+          <button id="nextTrackBtn" type="button" class="btn-mini" title="Siguiente champeta" aria-label="Cambiar a la siguiente champeta">⏭️ Sgte</button>
+        </div>
+
+        <div class="info-box">
+          <h2>¿Qué es un picó?</h2>
+          <p>En el Caribe colombiano, un <strong>picó</strong> es un sistema de sonido de gran formato, famoso por su potencia, su pintura llamativa y su identidad barrial. No es solo un equipo de parlantes: también es una obra visual y una expresión de cultura popular.</p>
+          <p>Los picós han sido fundamentales en fiestas, verbenas y encuentros comunitarios, especialmente en ciudades como Cartagena y Barranquilla. Están muy ligados a la circulación de ritmos afrocaribeños y a la historia de la champeta.</p>
+          <p>En este juego, el picó funciona como pieza de <strong>arte electrónico y nuevos medios</strong>: mezcla imagen, interacción, sonido y participación del público.</p>
+        </div>
+
+        <div class="preview-title">REFERENCIA COMPLETA DEL PICÓ</div>
+        <div class="preview"><img id="previewImage" alt="Picó costeño completo" /></div>
+      </aside>
+    </main>
+  </div>
+
+  <audio id="player" preload="metadata"></audio>
+
+<script src="app.js"></script>
+</body>
+</html>
